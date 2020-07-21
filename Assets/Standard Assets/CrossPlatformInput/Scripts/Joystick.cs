@@ -6,6 +6,9 @@ namespace UnityStandardAssets.CrossPlatformInput
 {
 	public class Joystick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler
 	{
+
+		[SerializeField]
+		private Rigidbody2D PlayerRB;
 		public enum AxisOption
 		{
 			// Options for which axes to use
@@ -87,6 +90,24 @@ namespace UnityStandardAssets.CrossPlatformInput
 				int delta = (int)(data.position.y - m_StartPos.y);
 				delta = Mathf.Clamp(delta, -MovementRange, MovementRange);
 				newPos.y = delta;
+				if (newPos.y > 40)
+				{
+					CrossPlatformInputManager.SetButtonDown("Jump");
+				}
+				else if(newPos.y <= 40)
+				{
+					CrossPlatformInputManager.SetButtonUp("Jump");
+				}
+				if (newPos.y < -40)
+				{
+					//increase weight
+					PlayerRB.gravityScale = 5f;
+				}
+				else if (newPos.y >= -40)
+				{
+					//decrease weight
+					PlayerRB.gravityScale = 3f;
+				}
 			}
 			transform.position = new Vector3(m_StartPos.x + newPos.x, m_StartPos.y + newPos.y, m_StartPos.z + newPos.z);
 			UpdateVirtualAxes(transform.position);

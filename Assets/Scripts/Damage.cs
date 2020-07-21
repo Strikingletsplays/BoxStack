@@ -4,12 +4,16 @@ using UnityEngine.SceneManagement;
 
 public class Damage : MonoBehaviour
 {
+    private Health Health;
+    private void Awake()
+    {
+        Health = GameObject.FindGameObjectWithTag("GameScript").GetComponent<Health>();
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("BOX"))
         {
-            // Reduce helth
-            Debug.Log("A box has fallen");
+            Health.decreaseHealth();
         }
         if(collision.CompareTag("Player"))
         {

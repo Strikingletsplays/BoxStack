@@ -16,7 +16,9 @@ public class drone : MonoBehaviour
     private void Awake()
     {
         gameScript = GameObject.FindGameObjectWithTag("GameScript").GetComponent<GameScript>();
+        //Drone speed
         speed = Random.Range(3, 8);
+        //Time to drop box
         time = Random.Range(3, 20);
     }
 
@@ -26,7 +28,7 @@ public class drone : MonoBehaviour
         time -= 1f * Time.deltaTime;
         if (time<= 0)
         {
-            //if ontop of scale
+            //if above platform
             if(transform.position.x < 6 && transform.position.x > -6)
             {
                 //Drop box
