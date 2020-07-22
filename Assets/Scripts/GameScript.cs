@@ -1,17 +1,32 @@
 ﻿using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameScript : MonoBehaviour
 {
     //Score
     [SerializeField]
     private TextMeshProUGUI ScoreGUI;
-    private float Score = 0;
+    private static float Score = 0;
+    public int GameScore { get; set; }
+    public string SocreName { get; set; }
+    private SaveScript saveScript;
 
+    //Canvases
+    [SerializeField]
+    private Canvas DeathCanvas;
+    [SerializeField]
+    private Canvas Canvas;
+
+    //For Drones
     [SerializeField]
     private GameObject Drone;
-
     private float xSpawn;
+
+    private void Awake()
+    {
+        saveScript = GetComponent<SaveScript>();
+    }
     void Update()
     {
         if (!(GameObject.FindGameObjectWithTag("Drone")))
@@ -20,9 +35,18 @@ public class GameScript : MonoBehaviour
         }
 
     }
+    public float getScore()
+    {
+        return Score;
+    }
     public void ScoreAdd()
     {
         Score++;
+        UpdateScore();
+    }
+    public void ScoreDecrease()
+    {
+        Score--;
         UpdateScore();
     }
     void UpdateScore()
@@ -38,6 +62,19 @@ public class GameScript : MonoBehaviour
             xSpawn = Random.Range(8, 10);
         }
 
-        Instantiate(Drone, new Vector3(xSpawn, 3.2f, 0), Quaternion.identity);
+        Instantiate(Drone, new Vector3(xSpawn, 3f, 0), Quaternion.identity);
+    }
+    public void GameOver()
+    {
+        Canvas.enabled = false;
+        DeathCanvas.enabled = true;
+        Time.timeScale = 0;
+        saveScript.LoadData();
+    }
+    public void Restartlvl()
+    {
+        Scene scene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(scene.name);
+        Time.timeScale = 1;
     }
 }

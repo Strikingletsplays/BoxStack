@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
+    private GameScript GameScript;
+
     [SerializeField]
     private Image heart1, heart2, heart3;
     private int PHealth = 3;
@@ -46,8 +48,12 @@ public class Health : MonoBehaviour
             heart1.enabled = false;
             heart2.enabled = false;
             heart3.enabled = false;
-            //restart lvl
-            SceneManager.LoadScene(scene.name);
+            GameScript.GameOver();
         }
+        
+    }
+    private void Awake()
+    {
+        GameScript = GetComponent<GameScript>();
     }
 }
