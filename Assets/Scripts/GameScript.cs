@@ -7,10 +7,15 @@ public class GameScript : MonoBehaviour
     //Score
     [SerializeField]
     private TextMeshProUGUI ScoreGUI;
-    private static float Score = 0;
-    public int GameScore { get; set; }
-    public string SocreName { get; set; }
+    private float Score = 0;
+    [SerializeField]
+    private TextMeshProUGUI currentScore;
+    [SerializeField]
+    private GameObject newHighScore;
+
+    //Saving to file
     private SaveScript saveScript;
+    
 
     //Canvases
     [SerializeField]
@@ -44,11 +49,11 @@ public class GameScript : MonoBehaviour
         Score++;
         UpdateScore();
     }
-    public void ScoreDecrease()
+    /*    public void ScoreDecrease()
     {
         Score--;
         UpdateScore();
-    }
+    }*/
     void UpdateScore()
     {
         ScoreGUI.text = Score.ToString();
@@ -62,14 +67,19 @@ public class GameScript : MonoBehaviour
             xSpawn = Random.Range(8, 10);
         }
 
-        Instantiate(Drone, new Vector3(xSpawn, 3f, 0), Quaternion.identity);
+        Instantiate(Drone, new Vector3(xSpawn, 2.5f, 0), Quaternion.identity);
     }
     public void GameOver()
     {
         Canvas.enabled = false;
+        if(Score > saveScript.LoadData().SavedScore)
+        {
+            newHighScore.SetActive(true);
+        }
         DeathCanvas.enabled = true;
         Time.timeScale = 0;
         saveScript.LoadData();
+        currentScore.text = Score.ToString();
     }
     public void Restartlvl()
     {

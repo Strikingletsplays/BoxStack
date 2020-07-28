@@ -11,7 +11,7 @@ public class SaveScript : MonoBehaviour
 
     //GUI
     [SerializeField]
-    private TMP_InputField Name;
+    private TMP_InputField CurrentName;
     [SerializeField]
     private TextMeshProUGUI TopScore;
     [SerializeField]
@@ -20,17 +20,15 @@ public class SaveScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        score = GetComponent<GameScript>().getScore();
         savePath = Application.persistentDataPath + "/boxstack.ss";
     }
-
     public void SaveData()
     {
-        
+        score = GetComponent<GameScript>().getScore();
         Save save = new Save();
         {
             save.SavedScore = (int)score;
-            save.SavedName = Name.text;
+            save.SavedName = CurrentName.text;
         };
 
         var binaryFormatter = new BinaryFormatter();
@@ -39,8 +37,9 @@ public class SaveScript : MonoBehaviour
             binaryFormatter.Serialize(fileStream, save);
         }
         Debug.Log("Score saved!");
+        LoadData();
     }
-    public void LoadData()
+    public Save LoadData()
     {
         if (File.Exists(savePath))
         {
@@ -55,10 +54,12 @@ public class SaveScript : MonoBehaviour
             //load data to leaderboard...
             TopScore.text = save.SavedScore.ToString();
             TopScoreName.text = save.SavedName;
+            return save;
         }
         else
         {
             Debug.LogWarning("Safe file dosen't exist");
+            return null;
         }
     }
 }

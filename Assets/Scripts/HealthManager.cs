@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Controller : MonoBehaviour
+public class HealthManager : MonoBehaviour
 {
     private Health Health;
     private GameScript GameScript;
@@ -14,7 +14,7 @@ public class Controller : MonoBehaviour
         if (collision.CompareTag("BOX"))
         {
             Health.decreaseHealth();
-            GameScript.ScoreDecrease();
+            //GameScript.ScoreDecrease();
             Destroy(collision.gameObject);
         }
         if(collision.CompareTag("Player"))

@@ -3,6 +3,6 @@
 [System.Serializable]
 public class Save 
 {
-    public int SavedScore;
+    public float SavedScore;
     public string SavedName;
 }
