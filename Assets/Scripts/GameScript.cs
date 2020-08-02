@@ -71,8 +71,12 @@ public class GameScript : MonoBehaviour
     }
     public void GameOver()
     {
-        Canvas.enabled = false;
-        if(Score > saveScript.LoadData().SavedScore)
+        Canvas.enabled = false; 
+        if (saveScript.LoadData()==null)    //First time playing
+        {
+            newHighScore.SetActive(true);
+        }
+        else if (Score > saveScript.LoadData().SavedScore)  
         {
             newHighScore.SetActive(true);
         }
