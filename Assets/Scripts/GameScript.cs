@@ -49,11 +49,7 @@ public class GameScript : MonoBehaviour
         Score++;
         UpdateScore();
     }
-    /*    public void ScoreDecrease()
-    {
-        Score--;
-        UpdateScore();
-    }*/
+
     void UpdateScore()
     {
         ScoreGUI.text = Score.ToString();
