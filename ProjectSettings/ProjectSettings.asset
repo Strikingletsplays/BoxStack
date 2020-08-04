@@ -719,10 +719,10 @@ PlayerSettings:
     m_VersionCode: 1
     m_VersionName: 
   apiCompatibilityLevel: 6
-  cloudProjectId: 
+  cloudProjectId: 67142f71-a5dc-4e19-b436-5103d23e1b26
   framebufferDepthMemorylessMode: 0
-  projectName: 
-  organizationId: 
+  projectName: BoxStack
+  organizationId: unity_007makiz
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0

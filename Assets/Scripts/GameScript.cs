@@ -12,6 +12,9 @@ public class GameScript : MonoBehaviour
     private TextMeshProUGUI currentScore;
     [SerializeField]
     private GameObject newHighScore;
+    //Top Left (Score Goal)
+    [SerializeField]
+    private TextMeshProUGUI ScoreGoal;
 
     //Saving to file
     private SaveScript saveScript;
@@ -53,6 +56,15 @@ public class GameScript : MonoBehaviour
     void UpdateScore()
     {
         ScoreGUI.text = Score.ToString();
+        isLvlPassed();
+    }
+    void isLvlPassed()
+    {
+        if (Score >= float.Parse(ScoreGoal.text))
+        {
+            //Show won screan.
+            Debug.Log("You won!");
+        }
     }
     void SpawnDrone()
     {

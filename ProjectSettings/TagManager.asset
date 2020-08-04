@@ -8,6 +8,7 @@ TagManager:
   - Drone
   - GameScript
   - Danger
+  - PlayerParticles
   layers:
   - Default
   - TransparentFX

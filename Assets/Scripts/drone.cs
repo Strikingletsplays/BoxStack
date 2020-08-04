@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using UnityEngine.SocialPlatforms.Impl;
+using System.Collections.Generic;
 
 public class Drone : MonoBehaviour
 {
@@ -11,8 +11,12 @@ public class Drone : MonoBehaviour
 
     //For Box
     [SerializeField]
-    private Transform box;
+    private List<GameObject> boxes;
+    [SerializeField]
+    private Transform SpawnPoint;
+    private GameObject box;
     private float speed;
+    private int index;
 
     //Box Drop Range
     [SerializeField]
@@ -30,11 +34,17 @@ public class Drone : MonoBehaviour
         time = Random.Range(3, 8);
         //Set Random range
         range = Random.Range(0.5F, 5);
+        //Spawn random box
+        index = Random.Range(0, boxes.Count);
+        box = Instantiate(boxes[index], SpawnPoint.position, Quaternion.identity);
+        box.transform.parent = gameObject.transform;
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         //Mone Drone
         MoveDrone();
         //Countdown to drop box
@@ -49,14 +59,14 @@ public class Drone : MonoBehaviour
             if (transform.position.x <= range && transform.position.x >= -range)
             {
                 //Drop Box
-                box.parent = null;
+                box.transform.parent = null;
                 box.GetComponent<Rigidbody2D>().simulated = true;
             }
         }
     }
     void MoveDrone()
     {
-        if (box && box.parent != null)
+        if (box && box.transform.parent != null)
         {
             //Move Right
             if (transform.position.x < 7 && !isGoingLeft)
