@@ -593,6 +593,7 @@ MonoBehaviour:
   boxes:
   - {fileID: 3118621831899409877, guid: ec8c8cb4dca45c8498ced90c69e995e8, type: 3}
   - {fileID: 1000010619805496, guid: 395dcd74773407e4faa9906eedf6f75d, type: 3}
+  - {fileID: 1272494292884339854, guid: 82285be8ab636d845a2a4c1106bb9f3c, type: 3}
   SpawnPoint: {fileID: 2723607605240616822}
   range: 0
 --- !u!114 &114239968978226944

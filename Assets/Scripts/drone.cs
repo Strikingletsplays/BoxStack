@@ -36,6 +36,7 @@ public class Drone : MonoBehaviour
         range = Random.Range(0.5F, 5);
         //Spawn random box
         index = Random.Range(0, boxes.Count);
+        //Spawn sellected box
         box = Instantiate(boxes[index], SpawnPoint.position, Quaternion.identity);
         box.transform.parent = gameObject.transform;
 
@@ -44,7 +45,6 @@ public class Drone : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
         //Mone Drone
         MoveDrone();
         //Countdown to drop box
@@ -59,8 +59,12 @@ public class Drone : MonoBehaviour
             if (transform.position.x <= range && transform.position.x >= -range)
             {
                 //Drop Box
-                box.transform.parent = null;
-                box.GetComponent<Rigidbody2D>().simulated = true;
+                if (box)
+                {
+                    box.transform.parent = null;
+                    box.GetComponent<Rigidbody2D>().simulated = true;
+                }
+               
             }
         }
     }
