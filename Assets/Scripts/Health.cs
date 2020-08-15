@@ -8,6 +8,8 @@ public class Health : MonoBehaviour
 
     [SerializeField]
     private Image heart1, heart2, heart3;
+    [SerializeField]
+    private Sprite fallenBox;
     private int PHealth = 3;
 
     public void decreaseHealth()
@@ -26,28 +28,20 @@ public class Health : MonoBehaviour
         if (PHealth >= 3)
         {
             PHealth = 3;
-            heart1.enabled = true;
-            heart2.enabled = true;
-            heart3.enabled = true;
         }
         else if (PHealth == 2)
         {
-            heart1.enabled = true;
-            heart2.enabled = true;
-            heart3.enabled = false;
+            heart3.sprite = fallenBox;
         }
         else if (PHealth == 1)
         {
-            heart1.enabled = true;
-            heart2.enabled = false;
-            heart3.enabled = false;
+            heart2.sprite = fallenBox;
         }
         else if (PHealth <= 0)
         {
-            Scene scene = SceneManager.GetActiveScene();
-            heart1.enabled = false;
-            heart2.enabled = false;
-            heart3.enabled = false;
+            heart1.sprite = fallenBox;
+
+            //Scene scene = SceneManager.GetActiveScene();
             GameScript.GameOver();
         }
         

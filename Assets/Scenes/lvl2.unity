@@ -994,6 +994,12 @@ PrefabInstance:
       propertyPath: WonCanvas
       value: 
       objectReference: {fileID: 1457519978}
+    - target: {fileID: 879908687334659330, guid: b91499e5dea61434080d721e9f77143b,
+        type: 3}
+      propertyPath: Drone
+      value: 
+      objectReference: {fileID: 4703215703393432528, guid: 7ad15d961fb883c49995028ee6fdeef4,
+        type: 3}
     - target: {fileID: 879908687334659353, guid: b91499e5dea61434080d721e9f77143b,
         type: 3}
       propertyPath: CurrentName
@@ -1242,6 +1248,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1132811179799692204, guid: 40f251373dec2b94c9093c8a8e8ac92a,
+        type: 3}
+      propertyPath: m_text
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1132811179799692204, guid: 40f251373dec2b94c9093c8a8e8ac92a,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1132811179799692204, guid: 40f251373dec2b94c9093c8a8e8ac92a,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1132811179874942975, guid: 40f251373dec2b94c9093c8a8e8ac92a,
         type: 3}

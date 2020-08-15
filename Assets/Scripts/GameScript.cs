@@ -103,4 +103,10 @@ public class GameScript : MonoBehaviour
         SceneManager.LoadScene(scene.name);
         Time.timeScale = 1;
     }
+    public void Nextlvl()
+    {
+        int Nlvli = SceneManager.GetActiveScene().buildIndex + 1;
+        SceneManager.LoadScene(Nlvli);
+        Time.timeScale = 1;
+    }
 }
