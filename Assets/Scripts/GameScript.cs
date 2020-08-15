@@ -12,36 +12,34 @@ public class GameScript : MonoBehaviour
     private TextMeshProUGUI currentScore;
     [SerializeField]
     private GameObject newHighScore;
-    //Top Left (Score Goal)
+    //Top Right (Score Goal)
     [SerializeField]
     private TextMeshProUGUI ScoreGoal;
 
     //Saving to file
+    [SerializeField]
     private SaveScript saveScript;
-    
 
     //Canvases
     [SerializeField]
     private Canvas DeathCanvas;
     [SerializeField]
     private Canvas Canvas;
+    [SerializeField]
+    private Canvas WonCanvas;
 
     //For Drones
     [SerializeField]
     private GameObject Drone;
     private float xSpawn;
 
-    private void Awake()
-    {
-        saveScript = GetComponent<SaveScript>();
-    }
-    void Update()
-    {
+    private void FixedUpdate()
+    { 
+        //if no drone is spawned..
         if (!(GameObject.FindGameObjectWithTag("Drone")))
         {
             SpawnDrone();
         }
-
     }
     public float getScore()
     {
@@ -56,6 +54,7 @@ public class GameScript : MonoBehaviour
     void UpdateScore()
     {
         ScoreGUI.text = Score.ToString();
+        //Check if lvl-Goal is reached
         isLvlPassed();
     }
     void isLvlPassed()
@@ -63,6 +62,11 @@ public class GameScript : MonoBehaviour
         if (Score >= float.Parse(ScoreGoal.text))
         {
             //Show won screan.
+            WonCanvas.enabled = true;
+            //hide canvas
+            Canvas.enabled = false;
+
+            Time.timeScale = 0;
             Debug.Log("You won!");
         }
     }
