@@ -39,7 +39,6 @@ public class Drone : MonoBehaviour
         //Spawn sellected box
         box = Instantiate(boxes[index], SpawnPoint.position, Quaternion.identity);
         box.transform.parent = gameObject.transform;
-
     }
 
     // Update is called once per frame
