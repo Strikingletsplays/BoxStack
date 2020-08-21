@@ -79,7 +79,7 @@ public class GameScript : MonoBehaviour
             xSpawn = Random.Range(8, 10);
         }
 
-        Instantiate(Drone, new Vector3(xSpawn, 2.5f, 2), Quaternion.identity);
+        Instantiate(Drone, new Vector3(xSpawn, 3.7f, 2), Quaternion.identity);
     }
     public void GameOver()
     {
