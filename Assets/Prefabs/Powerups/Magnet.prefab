@@ -4767,6 +4767,7 @@ GameObject:
   - component: {fileID: 1272494292884339855}
   - component: {fileID: 1272494292884339850}
   - component: {fileID: 5481953430486178745}
+  - component: {fileID: -2955350491305125700}
   m_Layer: 0
   m_Name: Magnet
   m_TagString: Magnet
@@ -4880,7 +4881,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 0.5
   m_AngularDrag: 0
   m_GravityScale: 0.5
   m_Material: {fileID: 0}
@@ -4888,3 +4889,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!58 &-2955350491305125700
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1272494292884339854}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 3.2200005

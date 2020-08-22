@@ -22,13 +22,20 @@ public class Powerups : MonoBehaviour
         transform.rotation = Quaternion.Euler(transform.rotation.x, rotation, transform.rotation.z);
     }
 
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("GameScript"))
         {
-            //if Magnet
-            if (this.CompareTag("Magnet"))
+            //Destroy gameobject
+            Destroy(this.gameObject);
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            //if PowerUp = Magnet
+            if(gameObject.tag == "Magnet")
             {
                 //Enables circle-collider triger on player.
                 gravity.enabled = true;
@@ -40,15 +47,12 @@ public class Powerups : MonoBehaviour
             //Disable power up after pickup
             GetComponent<SpriteRenderer>().enabled = false;
             GetComponent<CircleCollider2D>().enabled = false;
-        }else if (collision.CompareTag("GameScript"))
-        {
-            //Destroy gameobject
-            Destroy(this.gameObject);
         }
     }
     IEnumerator disablePlayerGravity()
     {
         yield return new WaitForSeconds(4.0f);
+        Debug.Log("Should unckeck");
         gravity.enabled = false;
         //Destroy gameObject
         Destroy(this.gameObject);
