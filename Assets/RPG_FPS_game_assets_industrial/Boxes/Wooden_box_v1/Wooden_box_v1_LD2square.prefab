@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 23000010366439892}
   - component: {fileID: 1796632337}
   - component: {fileID: 1796632341}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wooden_box_v1_LD2square
   m_TagString: BOX
   m_Icon: {fileID: 0}

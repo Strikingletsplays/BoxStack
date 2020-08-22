@@ -10,7 +10,7 @@ public class PlayerGravity : MonoBehaviour
         {
             //add force to the BOX towards player.
             Transform box = collision.GetComponent<Transform>();
-            box.position = Vector2.MoveTowards(box.position, transform.position, 2 * Time.smoothDeltaTime);
+            box.position = Vector2.MoveTowards(box.position, transform.position, 1.5f * Time.smoothDeltaTime);
         }
     }
 }

@@ -9,9 +9,19 @@ public class Buttons : MonoBehaviour
     [SerializeField]
     private Rigidbody2D PlayerRB;
 
+    //Weight
+    private bool Weight = false;
+
     private void Start()
     {
         Particles = GameObject.FindGameObjectWithTag("PlayerParticles").GetComponent<Transform>();
+    }
+    private void FixedUpdate()
+    {
+        if (Weight)
+        {
+            Particles.position = PlayerRB.transform.position;
+        }
     }
     public void Jump()
     {
@@ -20,12 +30,13 @@ public class Buttons : MonoBehaviour
     }
     public void WeightDown()
     {
-        Particles.position = PlayerRB.transform.position;
+        Weight = true;
         Particles.GetComponent<ParticleSystem>().Play();
         PlayerRB.gravityScale = 5f;
     }
     public void WeightUp()
     {
+        Weight = false;
         PlayerRB.gravityScale = 3f;
         Particles.GetComponent<ParticleSystem>().Stop();
     }
