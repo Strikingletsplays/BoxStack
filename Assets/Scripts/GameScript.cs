@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class GameScript : MonoBehaviour
 {
+    private static GameScript _instance;
     //Score
     [SerializeField]
     private TextMeshProUGUI ScoreGUI;
@@ -33,6 +34,18 @@ public class GameScript : MonoBehaviour
     private GameObject Drone;
     private float xSpawn;
 
+    private void Awake()
+    {
+        //Having only one instance of GameScript.
+        if (_instance == null)
+        {
+            _instance = this;
+        }
+        else
+        {
+            DontDestroyOnLoad(gameObject);
+        }
+    }
     private void FixedUpdate()
     { 
         //if no drone is spawned..

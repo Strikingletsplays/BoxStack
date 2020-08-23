@@ -106,10 +106,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27a646daec95c66409d6b39b49aa3876, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heart1: {fileID: 0}
-  heart2: {fileID: 0}
-  heart3: {fileID: 0}
+  box1: {fileID: 0}
+  box2: {fileID: 0}
+  box3: {fileID: 0}
   fallenBox: {fileID: 21300000, guid: 1bc66aa6e0c584f4a91432cce3e92937, type: 3}
+  Box: {fileID: 21300000, guid: e6db24a506981a84fb14f998a3ceda67, type: 3}
 --- !u!114 &879908687334659358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,6 +123,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d418944920112b44db0cd76acd3d7e58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Particles: {fileID: 9188174342875004222, guid: 0c95e7e593000ac44b2242eed5f93f15,
+    type: 3}
   PlayerRB: {fileID: 0}
 --- !u!114 &879908687334659352
 MonoBehaviour:

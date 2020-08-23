@@ -5,13 +5,15 @@ using UnityEngine.UI;
 public class Health : MonoBehaviour
 {
     private GameScript GameScript;
-
     [SerializeField]
-    private Image heart1, heart2, heart3;
+    private Image box1, box2, box3;
     [SerializeField]
     private Sprite fallenBox;
+    [SerializeField]
+    private Sprite Box;
     private int PHealth = 3;
 
+    
     public void decreaseHealth()
     {
         PHealth -= 1;
@@ -31,15 +33,15 @@ public class Health : MonoBehaviour
         }
         else if (PHealth == 2)
         {
-            heart3.sprite = fallenBox;
+            box1.sprite = fallenBox;
         }
         else if (PHealth == 1)
         {
-            heart2.sprite = fallenBox;
+            box2.sprite = fallenBox;
         }
         else if (PHealth <= 0)
         {
-            heart1.sprite = fallenBox;
+            box3.sprite = fallenBox;
 
             //Scene scene = SceneManager.GetActiveScene();
             GameScript.GameOver();

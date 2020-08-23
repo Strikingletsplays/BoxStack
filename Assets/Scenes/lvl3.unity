@@ -761,6 +761,21 @@ PrefabInstance:
       propertyPath: heart3
       value: 
       objectReference: {fileID: 1752008208}
+    - target: {fileID: 879908687334659357, guid: b91499e5dea61434080d721e9f77143b,
+        type: 3}
+      propertyPath: box1
+      value: 
+      objectReference: {fileID: 782683964}
+    - target: {fileID: 879908687334659357, guid: b91499e5dea61434080d721e9f77143b,
+        type: 3}
+      propertyPath: box2
+      value: 
+      objectReference: {fileID: 1140400013}
+    - target: {fileID: 879908687334659357, guid: b91499e5dea61434080d721e9f77143b,
+        type: 3}
+      propertyPath: box3
+      value: 
+      objectReference: {fileID: 1752008208}
     - target: {fileID: 879908687334659358, guid: b91499e5dea61434080d721e9f77143b,
         type: 3}
       propertyPath: PlayerRB
@@ -963,6 +978,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1132811179799692204, guid: 40f251373dec2b94c9093c8a8e8ac92a,
+        type: 3}
+      propertyPath: m_text
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1132811179799692204, guid: 40f251373dec2b94c9093c8a8e8ac92a,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40f251373dec2b94c9093c8a8e8ac92a, type: 3}

@@ -855,6 +855,21 @@ PrefabInstance:
       propertyPath: heart3
       value: 
       objectReference: {fileID: 1752008208}
+    - target: {fileID: 879908687334659357, guid: b91499e5dea61434080d721e9f77143b,
+        type: 3}
+      propertyPath: box1
+      value: 
+      objectReference: {fileID: 782683964}
+    - target: {fileID: 879908687334659357, guid: b91499e5dea61434080d721e9f77143b,
+        type: 3}
+      propertyPath: box2
+      value: 
+      objectReference: {fileID: 1140400013}
+    - target: {fileID: 879908687334659357, guid: b91499e5dea61434080d721e9f77143b,
+        type: 3}
+      propertyPath: box3
+      value: 
+      objectReference: {fileID: 1752008208}
     - target: {fileID: 879908687334659358, guid: b91499e5dea61434080d721e9f77143b,
         type: 3}
       propertyPath: PlayerRB
